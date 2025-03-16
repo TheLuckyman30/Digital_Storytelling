@@ -11,7 +11,7 @@ dotenv.config();
 backend.use(cors());
 
 const SCOPES = ['https://www.googleapis.com/auth/documents.readonly'];
-const KEY_PATH = process.env.PATH;
+const KEY_PATH = process.env.MYPATH;
 
 
 backend.get("/", async (req: Request, res: Response) => {

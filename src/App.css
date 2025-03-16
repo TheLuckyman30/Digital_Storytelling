@@ -4,3 +4,16 @@
   padding: 2rem;
   text-align: center;
 }
+
+.button {
+  background-color: rgb(168, 215, 255);
+  border-radius: 15px;
+  padding: 1rem;
+  font-size: 45px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-5px);
+}
