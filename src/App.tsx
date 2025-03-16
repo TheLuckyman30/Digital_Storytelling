@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { docs_v1 } from 'googleapis'
-import ReactMarkdown from "react-markdown";
 import './App.css'
+import TextComponent from "./components/TextComponent";
 
 function App() {
   const [text, setText] = useState<string[]>([]);
-  const[test, setTest] = useState<string>('');
 
   function getContent () {
     fetch('http://localhost:3001')
@@ -26,7 +25,6 @@ function App() {
             }
           });
         }
-        setTest(text.join(''));
       });
     
   }
@@ -34,8 +32,11 @@ function App() {
   return (
     <div>
       <div onClick={getContent} className="button">Get Content</div>
-      <ReactMarkdown>{test}</ReactMarkdown>
-      
+      <div>
+        {text.map((t: string) => 
+          <TextComponent text={t}></TextComponent>
+        )}
+      </div>
     </div>
   );
 }
