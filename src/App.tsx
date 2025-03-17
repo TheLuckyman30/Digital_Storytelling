@@ -43,8 +43,8 @@ function App() {
   }
 
   return (
-    <div>
-      <div onClick={getContent} className="button">Get Content</div>
+    <div className="main">
+      {!text.length && <div onClick={getContent} className="button">Get Content</div>}
       <div>
         {text.map((t: string, index: number) => 
           <TextComponent text={t} key={index}></TextComponent>

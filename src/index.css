@@ -1,23 +1,18 @@
-:root {
-  font-family: sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
+:root {
+  font-family: 'Comfortaa';
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+html, body {
+  padding: 0;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 100vw;
-  min-height: 100vh;
-  background-image: url('./assets/Background.jpg');
-  background-attachment: fixed;
+  background-image: url('./assets/Background.png');
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }

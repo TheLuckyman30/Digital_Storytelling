@@ -6,7 +6,7 @@ interface TextComponentProps {
 
 function TextComponent ({text}: TextComponentProps) {
     return (
-        <div style={{margin: '5rem', padding: '1rem', borderRadius: '15px', backgroundColor: 'white', boxShadow: '1rem 1rem 1rem rgb(1 0 0 / 30%)'}}>
+        <div style={{ padding: '1rem', margin: '5rem', borderRadius: '15px', backgroundColor: 'white', boxShadow: '1rem 1rem 1rem rgb(1 0 0 / 30%)', width: '50rem'}}>
             <ReactMarkdown>{text}</ReactMarkdown>
         </div>
         
