@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { docs_v1 } from 'googleapis'
-import './App.css'
+import './css/App.css'
 import TextComponent from "./components/TextComponent";
 
 function App() {
