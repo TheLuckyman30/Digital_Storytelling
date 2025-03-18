@@ -1,41 +1,55 @@
 import { useState } from "react";
 import { docs_v1 } from 'googleapis'
-import ReactMarkdown from "react-markdown";
-import './App.css'
+import './css/App.css'
+import TextComponent from "./components/TextComponent";
 
 function App() {
   const [text, setText] = useState<string[]>([]);
-  const[test, setTest] = useState<string>('');
 
   function getContent () {
+    const temp: string[] = [];
+    let body: string = '';
     fetch('http://localhost:3001')
       .then((response) => response.json())
       .then((document: docs_v1.Schema$Body) => {
         const contents = document?.content
         if (contents) {
-          const temp: string[] = [];
           contents.forEach((content) => {
             const elements = content.paragraph?.elements;
             if (elements) {
               elements.forEach((element) => {
                 if (element.textRun?.content) {
-                  temp.push(element.textRun.content.toString())
-                  setText(temp);
+                  const stringifiedContent = element.textRun.content;
+                  if (stringifiedContent === '\n') {
+                    temp.push(body);
+                    setText(temp);
+                    body = '';
+                  }
+                  else {
+                    body += stringifiedContent + "  \n";
+                  }
                 }
               });
             }
           });
         }
-        setTest(text.join(''));
+      })
+      .then(() => {
+        if (body.length) {
+          temp.push(body);
+          setText(temp);
+        }
       });
-    
   }
 
   return (
-    <div>
-      <div onClick={getContent} className="button">Get Content</div>
-      <ReactMarkdown>{test}</ReactMarkdown>
-      
+    <div className="main">
+      {!text.length && <div onClick={getContent} className="button">Get Content</div>}
+      <div>
+        {text.map((t: string, index: number) => 
+          <TextComponent text={t} key={index}></TextComponent>
+        )}
+      </div>
     </div>
   );
 }
