@@ -15,9 +15,14 @@ backend.use(cors());
 const FILE_KEY = process.env.SERVER_KEY_PATH;
 const CRT_PATH = process.env.SERVER_CRT_PATH;
 
+if (!FILE_KEY || !CRT_PATH) {
+  console.error("Error: Private key or certificate path is missing in environment variables.");
+  process.exit(1); // Exit the process with an error
+}
+
 const options = {
-  key: fs.readFileSync(FILE_KEY ? FILE_KEY : ''), // Path to the private key file
-  cert: fs.readFileSync(CRT_PATH ? CRT_PATH : ''), // Path to the certificate file
+  key: fs.readFileSync(FILE_KEY), // Path to the private key file
+  cert: fs.readFileSync(CRT_PATH), // Path to the certificate file
 };
 
 https.createServer(options, backend).listen(PORT, () => {
