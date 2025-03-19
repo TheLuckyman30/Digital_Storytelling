@@ -1,9 +1,8 @@
 .text-box {
     font-size: 30px;
     padding: 0.5rem;
-    margin: 10rem;
-    border-radius: 15px;
+    margin-bottom: 110vh;
     background-color: white;
     box-shadow: 1rem 1rem 1rem rgb(1 0 0 / 30%);
-    min-width: 40rem;
+    max-width: 60rem;
 }
