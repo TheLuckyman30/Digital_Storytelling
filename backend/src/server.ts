@@ -12,9 +12,12 @@ dotenv.config();
 
 backend.use(cors());
 
+const FILE_KEY = process.env.SERVER_KEY_PATH;
+const CRT_PATH = process.env.SERVER_CRT_PATH;
+
 const options = {
-  key: fs.readFileSync("./server.key"), // Path to the private key file
-  cert: fs.readFileSync("./server.crt"), // Path to the certificate file
+  key: fs.readFileSync(FILE_KEY ? FILE_KEY : ''), // Path to the private key file
+  cert: fs.readFileSync(CRT_PATH ? CRT_PATH : ''), // Path to the certificate file
 };
 
 https.createServer(options, backend).listen(PORT, () => {

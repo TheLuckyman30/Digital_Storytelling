@@ -24,6 +24,3 @@ dist-ssr
 *.sw?
 .env
 engl397-604df998e1d4.json
-server.crt
-server.csr
-server.key
