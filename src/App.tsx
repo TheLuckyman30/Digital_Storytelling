@@ -14,6 +14,9 @@ import pic8 from "./assets/pic8.jpg";
 import pic9 from "./assets/pic9.png";
 import pic10 from "./assets/pic10.png";
 import pic11 from "./assets/pic11.jpg";
+import pic12 from "./assets/pic12.jpg"
+import pic13 from "./assets/pic13.jpg"
+import pic14 from "./assets/pic14.jpg"
 
 function App() {
   const [text, setText] = useState<JSX.Element[]>([]);
@@ -29,7 +32,10 @@ function App() {
     { name: "pic8", value: pic8 },
     { name: "pic9", value: pic9 },
     { name: "pic10", value: pic10 },
-    { name: "pic11", value: pic11 }
+    { name: "pic11", value: pic11 },
+    { name: "pic12", value: pic12 },
+    { name: "pic13", value: pic13 },
+    { name: "pic14", value: pic14 }
   ];
 
   function getContent() {
@@ -83,12 +89,6 @@ function App() {
   return (
     <div
       className="main"
-      style={{
-        backgroundImage: `url(${imageToUse})`,
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-      }}
     >
       {!text.length && (
         <div onClick={getContent} className="button">
