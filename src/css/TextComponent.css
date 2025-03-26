@@ -1,8 +1,8 @@
 .text-box {
     font-size: 30px;
     padding: 0.5rem;
-    margin-bottom: 110vh;
+    height: 110vh;
     background-color: white;
     box-shadow: 1rem 1rem 1rem rgb(1 0 0 / 30%);
-    max-width: 60rem;
+    width: 99%;
 }
