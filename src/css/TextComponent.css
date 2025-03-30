@@ -1,8 +1,16 @@
+.text-container {
+    height: 140vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 99vw;
+}
+
 .text-box {
+    width: 60rem;
     font-size: 30px;
     padding: 0.5rem;
-    margin-bottom: 110vh;
-    background-color: white;
     box-shadow: 1rem 1rem 1rem rgb(1 0 0 / 30%);
-    max-width: 60rem;
+    background-color: white;
 }
