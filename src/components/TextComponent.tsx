@@ -7,7 +7,7 @@ interface TextComponentProps {
 }
 
 function TextComponent({ text, img }: TextComponentProps) {
-   
+ 
   return (
     <div
       style={{
