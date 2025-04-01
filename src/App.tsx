@@ -1,4 +1,4 @@
-import { JSX, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import { docs_v1 } from "googleapis";
 import "./css/App.css";
 import TextComponent from "./components/TextComponent";
@@ -20,25 +20,14 @@ import pic14 from "./assets/pic14.jpg";
 
 function App() {
   const [text, setText] = useState<JSX.Element[]>([]);
-  let imageToUse = img1;
-  const listOfImages = [
-    { name: "pic1", value: pic1 },
-    { name: "pic2", value: pic2 },
-    { name: "pic3", value: pic3 },
-    { name: "pic4", value: pic4 },
-    { name: "pic5", value: pic5 },
-    { name: "pic6", value: pic6 },
-    { name: "pic7", value: pic7 },
-    { name: "pic8", value: pic8 },
-    { name: "pic9", value: pic9 },
-    { name: "pic10", value: pic10 },
-    { name: "pic11", value: pic11 },
-    { name: "pic12", value: pic12 },
-    { name: "pic13", value: pic13 },
-    { name: "pic14", value: pic14 },
-  ];
 
-  function getContent() {
+  function getContent(
+    imageToUse: string,
+    listOfImages: {
+      name: string;
+      value: string;
+    }[]
+  ) {
     const temp: JSX.Element[] = [];
     let body: string = "";
     fetch(import.meta.env.VITE_FETCH_URL)
@@ -89,13 +78,28 @@ function App() {
       });
   }
 
+  useEffect(() => {
+    const listOfImages = [
+      { name: "pic1", value: pic1 },
+      { name: "pic2", value: pic2 },
+      { name: "pic3", value: pic3 },
+      { name: "pic4", value: pic4 },
+      { name: "pic5", value: pic5 },
+      { name: "pic6", value: pic6 },
+      { name: "pic7", value: pic7 },
+      { name: "pic8", value: pic8 },
+      { name: "pic9", value: pic9 },
+      { name: "pic10", value: pic10 },
+      { name: "pic11", value: pic11 },
+      { name: "pic12", value: pic12 },
+      { name: "pic13", value: pic13 },
+      { name: "pic14", value: pic14 },
+    ];
+    getContent(img1, listOfImages);
+  }, []);
+
   return (
     <div className="main">
-      {!text.length && (
-        <div onClick={getContent} className="button">
-          Get Contnet
-        </div>
-      )}
       <div>{text.map((text) => text)}</div>
     </div>
   );
